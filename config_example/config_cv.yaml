@@ -1,0 +1,68 @@
+exp_name: 'test'
+save_path: '/home/yw24267/work/DLFF/test_runs'
+remarks: "test remarks"
+device: 'cuda'  # make it consistent throughout all codes. gpu index or cuda/cpu
+# backup: ['code', 'config']  # not yet implemented
+
+train:  # params used only and exclusively during training
+  dataset_name: "SPICE"  # SPICE, ANI1
+  use_pkl: ""  # pickled dataset path, only used for speed up debuging and testing
+  csv_path: '/work/yw24267/DLFF/data/ANI1/for_training/test/test.csv'
+  label_column: 'LABEL_E_covalent'
+  relative_training: true
+  split:
+    column: 'SPLIT_NoHA'
+    train: [1, 2]
+    num_folds: 5  # evenly split the SPLIT ID in `train` and then apply cross val.
+    test: []
+  loading_workers: 0
+  batch_size: 200
+  loss_fn: "MSE"
+  loss_force_weight: 0.1  # 0 means turned off
+  loss_fn_force: "CartMSE"  # "CartMSE" or "CosMag"
+  loss_CosMag_cos_weight: 100  # weight of cos term in CosMag for the summation. only useful if CosMag enabled
+  sample_weight: "<20_2"
+  lr: 0.005
+  weight_decay: 0
+  lr_patience: 3
+  lr_factor: 0.5
+  lr_threshold: 0.1
+  lr_threshold_mode: 'abs'
+  num_epochs: 10
+  h5_files: [
+    '/scratch/yw_data/DLFF/data/ANI1/ANI-1_release/ani_gdb_s01.h5',
+    '/scratch/yw_data/DLFF/data/ANI1/ANI-1_release/ani_gdb_s02.h5',
+    '/scratch/yw_data/DLFF/data/ANI1/ANI-1_release/ani_gdb_s03.h5',
+    '/scratch/yw_data/DLFF/data/ANI1/ANI-1_release/ani_gdb_s04.h5',
+    '/scratch/yw_data/DLFF/data/ANI1/ANI-1_release/ani_gdb_s05.h5',
+    '/scratch/yw_data/DLFF/data/ANI1/ANI-1_release/ani_gdb_s06.h5',
+    '/scratch/yw_data/DLFF/data/ANI1/ANI-1_release/ani_gdb_s07.h5',
+    '/scratch/yw_data/DLFF/data/ANI1/ANI-1_release/ani_gdb_s08.h5'
+  ]  # store xyz data
+  h5_force: ""  # labels for forces
+  h5_multipole: "/home/yw24267/work/DLFF/data/ANI1/ANI-1_multipoles.h5"
+  speedup: true  # speedup data loading
+
+test:  # placeholder for external test set used in training in the future
+  csv_path: '/fakepath'
+
+model:  # model arch params
+  arch: 'ANINetwork'
+  MLP_dhiddens: [128, 64, 32]
+  pretrained_model: ''
+  metal: "" # metal specie such as "Cu", only used when arch == ANINetworkMetal
+  enable_bias: true  # whether to enable bias in MLP layers, default is True
+
+aev:
+  radial_start: 0.9
+  radial_cutoff: 5.2  # ANI-1x: 5.2
+  radial_eta: 16.0
+  radial_dist_divisions: 5  # ANI-1x: 16
+  angular_start: 0.9
+  angular_cutoff: 3.5
+  angular_eta: 8.0
+  angular_dist_divisions: 3  # ANI-1x: 4
+  zeta: 32.0 
+  angle_sections: 5  # ANI-1x: 8
+
+supported_species: ['H', 'C', 'N', 'O']  # ordered by atomic numbers

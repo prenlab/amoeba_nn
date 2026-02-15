@@ -91,7 +91,7 @@ The YAML file acts as the input configuration for your task. There are example f
         *   `'cuda:N'`: Uses a specific GPU index (e.g., `'cuda:1'` for the second GPU).
     *   *Note:* This can be overridden by the command line argument `--device`. For example, `python run.py ... --device cuda:1` will ignore the value in the YAML file.
 
-#### Data Mapping (The Bridge)
+#### Data Mapping
 You can name your CSV columns whatever you want, provided you update these fields:
 ```yaml
 train:

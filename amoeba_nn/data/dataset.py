@@ -372,7 +372,7 @@ class MetalDatabaseH5(ANI1xDatabaseH5):
             conf_id = slice(None)
         data = {}
         keys_1 = ["atomic_numbers"]
-        keys_2 = ["coordinates", "wb97x.energy", "wb97x.force", "amoeba.energy", "amoeba.force"]
+        keys_2 = ["coordinates", "qm.energy", "qm.force", "amoeba.energy", "amoeba.force"]
         
         if self.h5_cache or self.h5_inmemory:
             f = self._h5_file_object
@@ -395,8 +395,8 @@ class MetalDatabaseH5(ANI1xDatabaseH5):
     def _make_it_ANI1_like(data):
         key_mapping = {
             "atomic_numbers": "species",
-            "wb97x.energy": "energies",
-            "wb97x.force": "forces",
+            "qm.energy": "energies",
+            "qm.force": "forces",
         }
         data_ = {key_mapping.get(k, k): v for k, v in data.items()}
         data_["species"] = [Chem.Atom(int(i)).GetSymbol() for i in data_["species"]]
@@ -408,8 +408,8 @@ class MetalDatabaseH5(ANI1xDatabaseH5):
             cols = [
                 "atomic_numbers",
                 "coordinates", 
-                "wb97x.energy", 
-                "wb97x.force", 
+                "qm.energy", 
+                "qm.force", 
                 "amoeba.energy", 
                 "amoeba.force",
             ]

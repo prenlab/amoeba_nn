@@ -65,7 +65,7 @@ You can run Tinker9 executables you obtained in last step (like `dynamic9`, `ana
     ```bash
     export PYTHONPATH=$PYTHONPATH:/path/to/amoeba_nn/
     ```
-* **`nn.key.yaml`** The interface relies on a specific YAML configuration file to define how the Neural Network is applied to the molecular system. The file has to be named this way and placed in the working directory. It's hardcoded. An example file is available as `config_example/nn.key.yaml` with the following content.
+* **`tinker9nn.yaml`** The interface relies on a specific YAML configuration file to define how the Neural Network is applied to the molecular system. The file has to be named this way and placed in the working directory. It's hardcoded. An example file is available as `config_example/tinker9nn.yaml` with the following content.
     ```yaml
     # Path to the trained PyTorch model (.pt file)
     nn_model: "/path/to/saved/models/best_model.pt"

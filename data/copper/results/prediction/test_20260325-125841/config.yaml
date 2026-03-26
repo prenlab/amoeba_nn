@@ -1,0 +1,19 @@
+device: cuda:0
+exp_name: test
+predict:
+  batch_size: 500
+  csv_path: /home/zh6674/project/cunh3/mp2energy/tzvp16noh/predict/energy.csv
+  dataset_name: Metal
+  h5_files:
+  - /home/zh6674/project/cunh3/mp2energy/tzvp16noh/predict/data.h5
+  h5_multipole: ''
+  label_column: label_e
+  loading_workers: 8
+  model_ckpt: /home/zh6674/project/cunh3/mp2energy/tzvp16noh/test_20260215-153218/fold_3/models/Checkpoint_Epoch212_3.83_20260216-095657.pt
+  pred_column: PRED_E_covalent
+remarks: prediction of what model on what data
+save_folder: test_20260325-125841
+save_path: /home/zh6674/project/cunh3/mp2energy/tzvp16noh/predict
+supported_species: []
+supported_species2idx: {}
+time_stamp: 20260325-125841

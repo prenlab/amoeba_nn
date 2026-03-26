@@ -1,2 +1,4 @@
-copper_data/** filter=lfs diff=lfs merge=lfs -text
-data/** filter=lfs diff=lfs merge=lfs -text
+data/copper/*.h5 filter=lfs diff=lfs merge=lfs -text
+data/copper/**/*.h5 filter=lfs diff=lfs merge=lfs -text
+data/copper/energy.csv filter=lfs diff=lfs merge=lfs -text
+data/copper/results/prediction/test_20260325-125841/energy_pred.csv filter=lfs diff=lfs merge=lfs -text

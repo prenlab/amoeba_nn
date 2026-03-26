@@ -1,0 +1,7 @@
+nn_model: "finalcumodel.pt"
+device: "cuda"  # cuda device
+is_bonded: False # whether the nnp are bonded
+# atoms to compute nn energy of
+# start from 1
+nn_atoms: [
+]

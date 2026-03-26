@@ -1,4 +1,4 @@
-# Copper model training
+# Copper Ion Model 
 
 In this folder, all required files for tranining the Copper model are listed:
 1. **data.h5** caontains atomic number, coordinates, energy and force for both QM and MM.

@@ -26,7 +26,7 @@ conda activate cuda11
 The main entry to the program is `amoeba_nn/run.py`. To print help message: 
 
 ```bash
-python amoeba_nn/run.py -h
+python run.py -h
 
 usage: run.py [-h] -ip INPUT_PARAMS [--device DEVICE] [--debug] [--nolog] task
 
@@ -83,7 +83,7 @@ For elements H, C, N, and O, the NNP replaces the classical bonded terms (bond, 
 *   **Training Target:** $U_{NN} \approx U_{QM} - U_{AMOEBA\_non-bonded}$
 
 ### 2. Metal Ions (Intermolecular Correction)
-For metal ions (e.g., $Cu^{2+}$), the NNP acts as a correction term to capture complex many-body effects (like Jahn-Teller distortion).
+For metal ions (e.g., $Cu^{2+}$), the NNP acts as a correction term to capture complex many-body effects (like Jahn-Teller distortion). Data and training details can be found (data/copper/README.md)
 *   **Total Energy:** $U_{total} = U_{AMOEBA} + U_{NN(correction)}$
 *   **Training Target:** $U_{NN} \approx U_{QM} - U_{AMOEBA}$
 

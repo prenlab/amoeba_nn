@@ -6,6 +6,6 @@ In this folder, all required files for tranining the Copper model are listed:
 3. **config_cv.yaml** contains training parameters.
 4.  Trained model, force field parameter file and energy prediction results are stored in [results](results/)
 5. To run the training, run ``` python ../../run.py -ip config_cv.yaml cv ```
-6. To run the energy prediction with out model, go to ```results/prediction/``` folder and run ```python ../../../run.py -ip config_predict.yaml predict``` ,if you ever moved the .pt file, make sure there is a 'config.yaml' in the parent directory of .pt file
+6. To run the energy prediction with out model, go to ```results/prediction/``` folder and run ```python ../../../run.py -ip config_predict.yaml predict``` , if you ever moved the .pt file, make sure there is a 'config.yaml' in the parent directory of .pt file
 7. To run energy minimization, make sure  ```tinker9nn.yaml``` exists in the folder.
 8. Details for running energy calculation, geometrty minimization and molecular dynamics simulation by calling Tinker9 could be found in [Tinker9nn_py](docs/tinker9nn_py.md) and [Tinker9nn_cuda](docs/tinker9nn_cuda.md). 

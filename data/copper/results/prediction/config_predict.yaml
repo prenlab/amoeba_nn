@@ -5,7 +5,7 @@ device: 'cuda:0'  # make it consistent throughout all codes. gpu index or cuda/c
 # backup: ['code', 'config']  # not yet implemented
 
 predict:
-  model_ckpt: '/path/to/finalcumodel.pt'
+  model_ckpt: '/path/to/finalcumodel.pt'  #if you ever moved the .pt file, make sure there is a 'config.yaml' in the parent directory of .pt file
   csv_path: '/path/to/energy.csv'
   label_column: 'label_e'
   pred_column: 'PRED_E_covalent'

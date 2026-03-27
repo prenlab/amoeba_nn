@@ -1,0 +1,60 @@
+exp_name: 'test'
+save_path: './'
+remarks: "test remarks"
+device: 'cuda:0'  # make it consistent throughout all codes. gpu index or cuda/cpu
+# backup: ['code', 'config']  # not yet implemented
+
+train:  # params used only and exclusively during training
+  dataset_name: "Metal"  # SPICE, ANI1
+  use_pkl: ""
+  csv_path: 'energy.csv'
+  label_column: 'label_e'   # tarining target column name
+  relative_training: false
+  split:
+    column: 'division'
+    train: [0,1,2,3,4,5,6,7,8,9] 
+    num_folds: 5  # evenly split the SPLIT ID in `train` and then apply cross val.
+    test: []
+  loading_workers: 8
+  batch_size: 500
+  loss_fn: "MSE"
+  loss_force_weight: 0.2 # 0 means turned off
+  loss_fn_force: "CosMag"  # "CartMSE" or "CosMag"
+  loss_CosMag_cos_weight: 100  # weight of cos term in CosMag for the summation. only useful if CosMag enabled
+  sample_weight: "sample_weight"    # name of column
+  lr: 0.005
+  weight_decay: 0
+  lr_patience: 50   #loss stop dropping after $ epchos early stopping
+  lr_factor: 0.8
+  lr_threshold: 0.001
+  lr_threshold_mode: 'abs'
+  num_epochs: 1000
+  h5_files: [
+    'data.h5'
+  ]  # store xyz data
+  h5_force: "force_target.h5"  # labels for forces
+  h5_multipole: ""
+  speedup: true  # speedup data loading
+test:  # placeholder for external test set used in training in the future
+  csv_path: '/fakepath'
+
+model:  # model arch params
+  arch: 'ANINetwork_Metal'
+  MLP_dhiddens: [128, 64, 32]
+  pretrained_model: ''
+  metal: "Cu" # metal specie such as "Cu", only used when arch == ANINetworkMetal
+  enable_bias: False
+
+aev:
+  radial_start: 0.9
+  radial_cutoff: 3.5 # ANI-1x: 5.2
+  radial_eta: 16.0    #original 16
+  radial_dist_divisions: 16  # ANI-1x: 16
+  angular_start: 0.9
+  angular_cutoff: 3.5
+  angular_eta: 8        # original 8
+  angular_dist_divisions: 8  # ANI-1x: 4
+  zeta: 32  #original 32
+  angle_sections: 10  # ANI-1x: 8
+
+supported_species: ['O', 'N', 'Cu']  # ordered by atomic numbers

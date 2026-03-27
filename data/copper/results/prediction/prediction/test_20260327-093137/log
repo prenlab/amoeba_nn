@@ -9,22 +9,22 @@ save_path: prediction
 remarks: prediction of what model on what data
 device: cuda:0
 predict:
-  model_ckpt: /home/zh6674/test/copper/results/finalcumodel.pt
-  csv_path: /home/zh6674/test/copper/energy.csv
+  model_ckpt: /path/to/finalcumodel.pt
+  csv_path: /path/to/energy.csv
   label_column: label_e
   pred_column: PRED_E_covalent
   loading_workers: 8
   batch_size: 500
   dataset_name: Metal
   h5_files:
-  - /home/zh6674/test/copper/data.h5
+  - /path/to/data.h5
   h5_multipole: ''
 save_folder: test_20260327-093137
 
 [2026-03-27 09:31:38,431] INFO     | config.py   :105  | -------------------- config saved to prediction/test_20260327-093137/config.yaml --------------------
 [2026-03-27 09:31:38,437] INFO     | predictor.py:23   | prediction initializing...
 [2026-03-27 09:31:39,171] INFO     | predictor.py:38   | Size of data: 596895
-[2026-03-27 09:31:39,171] INFO     | predictor.py:53   | loading model configuration from /home/zh6674/test/copper/config.yaml
+[2026-03-27 09:31:39,171] INFO     | predictor.py:53   | loading model configuration from /path/to/config.yaml
 [2026-03-27 09:31:39,178] INFO     | predictor.py:58   | updated config: time_stamp: 20260327-093137
 supported_species2idx:
   O: 0
@@ -39,15 +39,15 @@ save_path: prediction
 remarks: prediction of what model on what data
 device: cuda:0
 predict:
-  model_ckpt: /home/zh6674/test/copper/results/finalcumodel.pt
-  csv_path: /home/zh6674/test/copper/energy.csv
+  model_ckpt: /path/to/finalcumodel.pt
+  csv_path: /path/to/energy.csv
   label_column: label_e
   pred_column: PRED_E_covalent
   loading_workers: 8
   batch_size: 500
   dataset_name: Metal
   h5_files:
-  - /home/zh6674/test/copper/data.h5
+  - /path/to/data.h5
   h5_multipole: ''
 save_folder: test_20260327-093137
 model:

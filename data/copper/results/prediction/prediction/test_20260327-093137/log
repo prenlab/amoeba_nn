@@ -1,0 +1,92 @@
+[2026-03-27 09:31:38,428] INFO     | main.py     :41   | Running on node160.bme.utexas.edu [Linux 4.18.0-425.10.1.el8_7.x86_64]
+[2026-03-27 09:31:38,428] INFO     | main.py     :47   | Device: cuda:0
+[2026-03-27 09:31:38,429] INFO     | config.py   :102  | runtime config: 
+time_stamp: 20260327-093137
+supported_species2idx: {}
+supported_species: []
+exp_name: test
+save_path: prediction
+remarks: prediction of what model on what data
+device: cuda:0
+predict:
+  model_ckpt: /home/zh6674/test/copper/results/finalcumodel.pt
+  csv_path: /home/zh6674/test/copper/energy.csv
+  label_column: label_e
+  pred_column: PRED_E_covalent
+  loading_workers: 8
+  batch_size: 500
+  dataset_name: Metal
+  h5_files:
+  - /home/zh6674/test/copper/data.h5
+  h5_multipole: ''
+save_folder: test_20260327-093137
+
+[2026-03-27 09:31:38,431] INFO     | config.py   :105  | -------------------- config saved to prediction/test_20260327-093137/config.yaml --------------------
+[2026-03-27 09:31:38,437] INFO     | predictor.py:23   | prediction initializing...
+[2026-03-27 09:31:39,171] INFO     | predictor.py:38   | Size of data: 596895
+[2026-03-27 09:31:39,171] INFO     | predictor.py:53   | loading model configuration from /home/zh6674/test/copper/config.yaml
+[2026-03-27 09:31:39,178] INFO     | predictor.py:58   | updated config: time_stamp: 20260327-093137
+supported_species2idx:
+  O: 0
+  N: 1
+  Cu: 2
+supported_species:
+- O
+- N
+- Cu
+exp_name: test
+save_path: prediction
+remarks: prediction of what model on what data
+device: cuda:0
+predict:
+  model_ckpt: /home/zh6674/test/copper/results/finalcumodel.pt
+  csv_path: /home/zh6674/test/copper/energy.csv
+  label_column: label_e
+  pred_column: PRED_E_covalent
+  loading_workers: 8
+  batch_size: 500
+  dataset_name: Metal
+  h5_files:
+  - /home/zh6674/test/copper/data.h5
+  h5_multipole: ''
+save_folder: test_20260327-093137
+model:
+  arch: ANINetwork_Metal
+  MLP_dhiddens:
+  - 128
+  - 64
+  - 32
+  pretrained_model: ''
+  metal: Cu
+  enable_bias: false
+aev:
+  radial_start: 0.9
+  radial_cutoff: 3.5
+  radial_eta: 16.0
+  radial_dist_divisions: 16
+  angular_start: 0.9
+  angular_cutoff: 3.5
+  angular_eta: 8
+  angular_dist_divisions: 8
+  zeta: 32
+  angle_sections: 10
+
+[2026-03-27 09:31:39,361] INFO     | predictor.py:62   | prediction started...
+[2026-03-27 09:31:40,986] INFO     | mlp.py      :265  | [ 0 / 1194 ] batches completed.
+[2026-03-27 09:31:44,758] INFO     | mlp.py      :265  | [ 100 / 1194 ] batches completed.
+[2026-03-27 09:31:48,828] INFO     | mlp.py      :265  | [ 200 / 1194 ] batches completed.
+[2026-03-27 09:31:52,974] INFO     | mlp.py      :265  | [ 300 / 1194 ] batches completed.
+[2026-03-27 09:31:56,784] INFO     | mlp.py      :265  | [ 400 / 1194 ] batches completed.
+[2026-03-27 09:32:00,910] INFO     | mlp.py      :265  | [ 500 / 1194 ] batches completed.
+[2026-03-27 09:32:04,979] INFO     | mlp.py      :265  | [ 600 / 1194 ] batches completed.
+[2026-03-27 09:32:09,020] INFO     | mlp.py      :265  | [ 700 / 1194 ] batches completed.
+[2026-03-27 09:32:13,238] INFO     | mlp.py      :265  | [ 800 / 1194 ] batches completed.
+[2026-03-27 09:32:17,391] INFO     | mlp.py      :265  | [ 900 / 1194 ] batches completed.
+[2026-03-27 09:32:21,585] INFO     | mlp.py      :265  | [ 1000 / 1194 ] batches completed.
+[2026-03-27 09:32:25,878] INFO     | mlp.py      :265  | [ 1100 / 1194 ] batches completed.
+[2026-03-27 09:32:29,519] INFO     | predictor.py:66   | RMSE: 1.292088343341738
+[2026-03-27 09:32:29,523] INFO     | predictor.py:67   | R_Pearson: 0.9903102317187603
+[2026-03-27 09:32:29,931] INFO     | predictor.py:68   | R_Spearman: 0.9895938191501701
+[2026-03-27 09:32:29,934] INFO     | predictor.py:69   | R_squared: 0.9805274034197038
+[2026-03-27 09:32:31,931] INFO     | predictor.py:77   | prediction finished.
+[2026-03-27 09:32:31,952] INFO     | main.py     :65   | program ended. total time eclipsed: 53.52946758270264

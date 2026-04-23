@@ -1,13 +1,13 @@
-## Running AMOEBA+NN with Python-Tinker9 Interface
+## Running AMOEBA+NN with Python/Tinker-GPU  Interface
 
-This section details how to run simulations with AMOEBA+NN hybrid model with the Python-Tinker9 interface. This interface acts as a bridge, allowing the Python-based Neural Network to communicate directly with the C++/CUDA-based Tinker9 engine. The Python-side logic resides in `utils/tinker9_interface.py`, while the Tinker9-side logic can be found https://github.com/CanisW/tinker9/tree/nn_py.
+This section details how to run simulations with AMOEBA+NN hybrid model with the Python/Tinker-GPU interface. This interface acts as a bridge, allowing the Python-based Neural Network to communicate directly with the C++/CUDA-based Tinker-GPU engine. The Python-side logic resides in `utils/tinker9_interface.py`, while the Tinker-GPU-side logic can be found https://github.com/prenlab/tinker-gpu/tree/nn_py.
 
 
 > **⚠️ Note:** This interface is primarily intended for development, prototyping, and convenient testing of new network architectures. It does NOT support Periodic Boundary Condition properly.
 
 ### 1. Prerequisites & Compilation
 
-You must compile the version of Tinker9 specific for this interface.
+You must compile the version of Tinker-GPU specific for this interface.
 
 1.  **Environment Setup:**
 
@@ -20,8 +20,8 @@ You must compile the version of Tinker9 specific for this interface.
 
 2.  **Compilation:**
     ```bash
-    git clone -b nn_py https://github.com/CanisW/tinker9.git
-    cd tinker9
+    git clone -b nn_py https://github.com/prenlab/tinker-gpu.git
+    cd tinker-gpu
     mkdir build
     cd build
     bash compile.sh
@@ -58,10 +58,10 @@ You must compile the version of Tinker9 specific for this interface.
 
 ### 2. Execution
 
-You can run Tinker9 executables you obtained in last step (like `dynamic9`, `analyze9`, or `testgrad9`) while passing the Python-side NN configurations via the `nn.key.yaml` file in your working directory.
+You can run Tinker-GPU executables you obtained in last step (like `dynamic9`, `analyze9`, or `testgrad9`) while passing the Python-side NN configurations via the `nn.key.yaml` file in your working directory.
 
 * **Path Configuration:**
-    You must export the path to the `amoeba_nn` repository, so the model code can be successfully imported in Tinker9 C++ code.
+    You must export the path to the `amoeba_nn` repository, so the model code can be successfully imported in Tinker-GPU C++ code.
     ```bash
     export PYTHONPATH=$PYTHONPATH:/path/to/amoeba_nn/
     ```
@@ -87,7 +87,7 @@ You can run Tinker9 executables you obtained in last step (like `dynamic9`, `ana
     ]
     ```
 
-**Command Line Syntax:** The normal way of using Tinker9.
+**Command Line Syntax:** The normal way of using Tinker-GPU.
 ```bash
-/path/to/tinker9/build/dynamic9 <xyz_file> -k <key_file> ...
+/path/to/tinker-gpu/build/dynamic9 <xyz_file> -k <key_file> ...
 ```

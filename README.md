@@ -7,9 +7,9 @@
 **Please Note:** This repository contains **only the Python code for the Neural Network term** in AMOEBA+NN. It handles:
 *   Model training (learning the difference between QM and AMOEBA).
 *   Model testing/inference on datasets.
-*   An interface to bridge with Tinker9 for development purposes.
+*   An interface to bridge with Tinker-GPU for development purposes.
 
-**This code does not perform AMOEBA calculations** (energies, forces). **Tinker software** (Tinker, Tinker9, or Tinker-HP) is required to compute the classical AMOEBA terms in AMOEBA+NN.
+**This code does not perform AMOEBA calculations** (energies, forces). **Tinker software** (Tinker, Tinker-GPU, or Tinker-HP) is required to compute the classical AMOEBA terms in AMOEBA+NN.
 
 ## Getting Started
 
@@ -53,22 +53,24 @@ For the installation of Tinker software, refer to its official page.
 
 To run geometry minimization or molecular dynamics (MD) simulations with the AMOEBA+NN model, the NN and AMOEBA must work together. We support three modes of integration:
 
-1.  **Python-Tinker9 Interface:**
+1.  **Python/Tinker-GPU Interface:**
     *   🔴 Requires this repository.
-    *   Setup Guide: [Running AMOEBA+NN with Python-Tinker9 Interface](docs/tinker9nn_py.md)
-    *   This mode allows the Python-based NN to communicate with the C++/CUDA-based Tinker9 engine.
+    *   Setup Guide: [Running AMOEBA+NN with Python/Tinker-GPU Interface](docs/tinker9nn_py.md)
+    *   This mode allows the Python-based NN to communicate with the C++/CUDA-based Tinker-GPU engine.
     *   *Best for:* Quick prototyping, testing, and development.
 
-2.  **Native Tinker9 Implementation:**
-    *   🟢 Does NOT require this repository.
-    *   Setup Guide: [Running AMOEBA+NN with Native NN in Tinker9](docs/tinker9nn_cuda.md)
-    *   The NN is implemented directly within the **Tinker9** software using C++/CUDA.
+2.  **Native Tinker-GPU Implementation:**
+    *   🟢 Does NOT require this repository. 
+    *   Refer to the official Tinker-GPU repository for installation (https://github.com/TinkerTools/tinker-gpu).
+    *   Setup Guide: [Running AMOEBA+NN with Native NN in Tinker-GPU](https://tinker9-manual.readthedocs.io/en/latest/m/key/nn.html)
+    *   The NN is implemented directly within the **Tinker-GPU** software using C++/CUDA.
     *   This provides a more cohesive and efficient integration, eliminating the overhead of Python-C++ communication.
-    *   *Best for:* Production MD simulations on GPUs.
+    *   The provided `pt2prm.py` script converts trained PyTorch models (`.pt`) into Tinker-compatible parameter files (`.prm`) for use with Tinker-GPU.
+    *   *Best for:* Production MD simulations on a GPU.
 
 3.  **Deep-HP (Tinker-HP):**
     *   🟢 Does NOT require this repository.
-    *   Setup Guide: Refer to the official repository (https://github.com/TinkerTools/tinker-hp)
+    *   Setup Guide: Refer to the official repository (https://github.com/TinkerTools/tinker-hp).
     *   The NN is integrated into **Tinker-HP** to utilize Massively Parallel Processing (MPI) for High-Performance Computing (HPC).
     *   *Best for:* Large-scale simulations requiring multi-GPU/multi-node setups.
 

@@ -3423,7 +3423,7 @@ vdwpair       500    37     2.64500  0.490
       #################################
 
 
-#/home/zh6674/project/cunh3/mp2energy/tzvp16noh/test_20260215-153236/fold_4/models/Checkpoint_Epoch383_4.89_20260216-122858.pt
+#/test_20260215-153236/fold_4/models/Checkpoint_Epoch383_4.89_20260216-122858.pt
 
 
 nnp metal
